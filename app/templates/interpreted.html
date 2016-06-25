@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+{% if message %}
+    {{ message }}
+{% endif %}
+<p></p>
+<p>Интерпретируем ли список слов, который представлен ниже? Если Вы можете одним или двумя словами обозначить тему для
+    данных слов, отвечайте "Да", иначе - "Нет"</p>
+<form action="" method="post" name="choose1" accept-charset="utf-8">
+    {{ form.hidden_tag() }}
+    {% for (id, word) in data.items() %}
+        <div>{{ word }}</div>
+    {% endfor %}
+    <p>{{ form.submit }}</p>
+    <p>{{ form.reject }}</p>
+</form>
+</body>
+</html>

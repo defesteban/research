@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+{% if message %}
+    {{ message }}
+{% endif %}
+<p></p>
+<p>Выберите лишнее слово:</p>
+{% for message in form.choose.errors %}
+    {{ message }}
+{% endfor %}
+<form action="" method="post" name="choose2" accept-charset="utf-8">
+    {{ form.hidden_tag() }}
+    <p>{{ form.choose }}</p>
+    <p>{{ form.submit }}</p>
+</form>
+</body>
+</html>

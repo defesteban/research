@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>{{ title }}</title>
+</head>
+<body>
+{% if choose_question %}
+    <p>Интерпретируем ли список слов, который представлен ниже?</p>
+    <form action="" method="post" name="choose1" accept-charset="utf-8">
+        {{ form.hidden_tag() }}
+        {% for (id, word) in data.items() %}
+            <div>{{ word }}</div>
+        {% endfor %}
+        <p>{{ form.submit }}</p>
+        <p>{{ form.reject }}</p>
+    </form>
+{% else %}
+    <p>Выберите лишнее слово:</p>
+    {% for message in form.choose.errors %}
+        {{ message }}
+    {% endfor %}
+    <form action="" method="post" name="choose2" accept-charset="utf-8">
+        {{ form.hidden_tag() }}
+        <p>{{ form.choose }}</p>
+        <p>{{ form.submit }}</p>
+    </form>
+{% endif %}
+</body>
+</html>
